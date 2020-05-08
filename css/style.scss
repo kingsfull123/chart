@@ -33,18 +33,18 @@
 }
 
 $colors: (
-  color1: rgba(57, 0, 153, 1),
-  color1-lighten: lighten(rgba(57, 0, 153, 1), 40%),
-  color2: rgba(158, 0, 89, 1),
-  color3: rgba(255, 0, 84, 1),
+  color1: rgba(26, 83, 92, 1),
+  color1-lighten: lighten(rgba(26, 83, 92, 1), 40%),
+  color3: rgba(255, 107, 107, 1),
   color4: rgba(255, 84, 0, 1),
-  color5: rgba(255, 189, 0, 1),
-  color6: rgb(236, 87, 12),
+  color5: rgba(255, 230, 109, 1),
+  color6: rgb(78, 205, 196),
+  color7: rgb(69, 179, 171),
 );
 
 body {
   font-family: "Roboto", sans-serif;
-  color: getColor(color1);
+  color: getColor(color4);
 }
 
 p {
@@ -57,10 +57,12 @@ p {
   text-transform: uppercase;
   padding: 1em;
   font-size: 1.5em;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .btn {
-  background-color: getColor(color3);
+  background-color: getColor(color4);
   border: none;
   padding: 10px 15px;
   font-size: 1.3em;
@@ -82,7 +84,7 @@ p {
   transition: all 0.45s ease-out;
 
   .triangle i {
-    color: red;
+    color: getColor(color4);
     position: absolute;
     right: -17px;
     top: 50%;
@@ -110,6 +112,15 @@ p {
 
   .container {
     margin-left: 105px;
+
+    @include desktop {
+      height: 100%;
+      min-height: 100vh;
+    }
+
+    @include larger-desktop {
+      height: 100%;
+    }
   }
 
   .triangle {
@@ -138,8 +149,7 @@ p {
 }
 
 .container {
-  background-color: getColor(color4);
-  height: 100vh;
+  background-color: getColor(color6);
 
   // @include desktop {
   //   height: 100vh;
@@ -173,6 +183,7 @@ p {
   padding: 0.5em;
   margin: 1em;
   padding: 1em;
+  background-color: getColor(color7);
 
   #myChart {
     width: 90%;
@@ -188,6 +199,8 @@ p {
     padding: 1.5em 2em;
     display: grid;
     gap: 2em;
+    max-width: 1340px;
+    margin: 0 auto;
 
     @include desktop {
       grid-template-columns: repeat(3, 1fr);
@@ -196,8 +209,9 @@ p {
   }
 
   .middle {
+    background-color: getColor(color7);
     select {
-      background-color: getColor(color3);
+      background-color: getColor(color4);
       color: #fff;
       margin-bottom: 1em;
       border: none;
@@ -209,7 +223,22 @@ p {
     }
   }
 
+  .left {
+    background-color: getColor(color7);
+    padding: 1em;
+    border-radius: 10px;
+  }
+
+  .middle {
+    padding: 1em;
+    border-radius: 10px;
+  }
+
   .right {
+    background-color: getColor(color7);
+    padding: 1em;
+    border-radius: 10px;
+
     ul {
       padding: 0;
       margin: 0;
@@ -217,6 +246,7 @@ p {
 
     li {
       font-size: 1.23em;
+      list-style: none;
     }
   }
 }

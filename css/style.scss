@@ -2,10 +2,34 @@
   @return map-get($colors, $color-value);
 }
 
+@mixin desktop {
+  @media (min-width: 760px) {
+    @content;
+  }
+}
+
+@mixin larger-desktop {
+  @media (min-width: 1295px) {
+    @content;
+  }
+}
+
+// @mixin desktop {
+//   @media (min-width: #{$desktop}) {
+//     @content;
+//   }
+// }
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+@include larger-desktop {
+  html {
+    font-size: 110%;
+  }
 }
 
 $colors: (
@@ -15,7 +39,35 @@ $colors: (
   color3: rgba(255, 0, 84, 1),
   color4: rgba(255, 84, 0, 1),
   color5: rgba(255, 189, 0, 1),
+  color6: rgb(236, 87, 12),
 );
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: getColor(color1);
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.4em;
+}
+
+.subtitle {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1em;
+  font-size: 1.5em;
+}
+
+.btn {
+  background-color: getColor(color3);
+  border: none;
+  padding: 10px 15px;
+  font-size: 1.3em;
+  border-radius: 10px;
+  box-shadow: 5px 5px 40px getColor(color1-lighten);
+  color: #fff;
+}
 
 // Sidebar
 
@@ -27,7 +79,6 @@ $colors: (
   background-color: getColor(color1);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  margin: 0;
   transition: all 0.45s ease-out;
 
   .triangle i {
@@ -48,6 +99,24 @@ $colors: (
   margin-left: -105px;
 }
 
+@include desktop {
+  .sidebar-container {
+    position: fixed;
+    margin: 0;
+    height: 100vh;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .container {
+    margin-left: 105px;
+  }
+
+  .triangle {
+    display: none;
+  }
+}
+
 .sidebar {
   ul {
     margin: 0;
@@ -65,5 +134,89 @@ $colors: (
   i {
     font-size: 3em;
     padding: 0.23em;
+  }
+}
+
+.container {
+  background-color: getColor(color4);
+  height: 100vh;
+
+  // @include desktop {
+  //   height: 100vh;
+  // }
+}
+
+// Topbar
+.topbar {
+  padding: 1em;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  .topbar-icon i {
+    font-size: 1.5em;
+  }
+
+  .topbar-text-container {
+    margin-left: 1.65em;
+
+    .topbar-title {
+      text-transform: uppercase;
+      font-size: 1.65em;
+    }
+  }
+}
+// Chart
+
+.chart {
+  height: auto;
+  padding: 0.5em;
+  margin: 1em;
+  padding: 1em;
+
+  #myChart {
+    width: 90%;
+    max-width: 990px;
+    margin: 0 auto;
+  }
+}
+
+// Three-block
+
+.three-block {
+  .three-block-container {
+    padding: 1.5em 2em;
+    display: grid;
+    gap: 2em;
+
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr);
+      align-content: center;
+    }
+  }
+
+  .middle {
+    select {
+      background-color: getColor(color3);
+      color: #fff;
+      margin-bottom: 1em;
+      border: none;
+      padding: 0.3em;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+  }
+
+  .right {
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      font-size: 1.23em;
+    }
   }
 }

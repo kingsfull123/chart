@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Line Chart</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="https://kit.fontawesome.com/3ca10d6b55.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -30,6 +32,55 @@
       </div>
       <span class="triangle"><i class="fas fa-caret-right"></i></span>
     </div>
+    <section class="container">
+      <div class="topbar">
+        <span class="topbar-icon"><i class="fas fa-database"></i></span>
+        <div class="topbar-text-container">
+          <h3 class="topbar-title">Dasboard</h3>
+          <p>This is where you find our your last financial year sales figures</p>
+        </div>
+      </div>
+      <div class="chart">
+        <canvas id="myChart"></canvas>
+      </div>
+      <div class="three-block">
+        <div class="three-block-container">
+          <div class="left">
+            <h3 class="subtitle">mixins & scss</h3>
+            <p>
+              They can be used to encapsulate styles that can be dropped into a single style rule; they can
+              contain style rules of their own that can be nested in other rules or included at the top level
+              of the stylesheet; or they can just serve to modify variables.
+            </p>
+          </div>
+          <div class="middle">
+            <h3 class="subtitle">Pick a range</h3>
+            <select name="" id="">
+              <option value="Current">Current</option>
+              <option value="1 year before">1 year before</option>
+              <option value="2 year before">2 year before</option>
+              <option value="3 year before">3 year before</option>
+            </select>
+            <p>
+              chart.js is the 98th most popular package on jsDelivr, with 104 792 199 CDN hits in the last
+              month
+            </p>
+            <button class="btn">Submit</button>
+          </div>
+          <div class="right">
+            <h3 class="subtitle">Facts</h3>
+            <ul>
+              <li>Before submitting an issue or a pull request to the project</li>
+              <li>please take a moment to look over the contributing guidelines first</li>
+              <li>Chart.js is available under the MIT license</li>
+              <li>You can see all the ways to use Chart.js in the usage documentation.</li>
+              <li>It's easy to get started with Chart.js.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
     <script src="app.js"></script>
+    <script src="chart.js"></script>
   </body>
 </html>
